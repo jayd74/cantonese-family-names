@@ -14,7 +14,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Paternal grandfather", 
     cantonese: "爺爺", 
-    pinyin: "ye4 ye4",
+    pinyin: "yé ye",
     yue: "阿爺",
     yuePinyin: "aa3 je4",
     generation: 2,
@@ -84,7 +84,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Father", 
     cantonese: "爸爸", 
-    pinyin: "baa4 baa1",
+    pinyin: "bà ba",
     yue: "老豆",
     yuePinyin: "lou5 dau6",
     generation: 1 
@@ -92,7 +92,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Mother", 
     cantonese: "媽媽", 
-    pinyin: "maa1 maa1",
+    pinyin: "mā ma",
     yue: "老母",
     yuePinyin: "lou5 mou5",
     generation: 1 
@@ -100,7 +100,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Father's elder brother", 
     cantonese: "伯父", 
-    pinyin: "baak3 fu6",
+    pinyin: "bó fù",
     yue: "阿伯",
     yuePinyin: "aa3 baak3",
     generation: 1,
@@ -148,7 +148,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Mother's brother", 
     cantonese: "舅父", 
-    pinyin: "kau5 fu6",
+    pinyin: "jiù fù",
     yue: "阿舅",
     yuePinyin: "aa3 kau5",
     generation: 1,
@@ -182,8 +182,9 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Elder brother", 
     cantonese: "哥哥", 
-    pinyin: "go1 go1",
+    pinyin: "gē ge",
     yue: "大佬",
+    yuePinyin: "daai6 lou2",
     generation: 0 
   },
   { 
@@ -191,6 +192,7 @@ export const familyRelationships: FamilyRelationship[] = [
     cantonese: "姐姐", 
     pinyin: "ze2 ze2",
     yue: "家姐",
+    yuePinyin: "gaa1 ze1",
     generation: 0 
   },
   { 
@@ -204,7 +206,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Younger sister", 
     cantonese: "妹妹", 
-    pinyin: "mui6 mui2",
+    pinyin: "mèi mei",
     yue: "阿妹",
     yuePinyin: "aa3 mui1",
     generation: 0 
@@ -594,7 +596,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Son", 
     cantonese: "兒子", 
-    pinyin: "ji4 zi2",
+    pinyin: "ér zi",
     yue: "仔",
     yuePinyin: "zai2",
     generation: -1 
@@ -602,7 +604,7 @@ export const familyRelationships: FamilyRelationship[] = [
   { 
     english: "Daughter", 
     cantonese: "女兒", 
-    pinyin: "neoi5 ji4",
+    pinyin: "nǚ ér",
     yue: "女",
     yuePinyin: "neoi5",
     generation: -1 

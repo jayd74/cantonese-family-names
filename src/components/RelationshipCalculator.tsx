@@ -263,7 +263,7 @@ export default function RelationshipCalculator() {
       {/* Result display with compact layout */}
       {result ? (
         <div className="mb-3 p-3 bg-green-50 border border-green-200 rounded-md">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
             <div className="text-3xl font-bold text-green-700">
               {result.cantonese}
               {result.yue && result.yue !== result.cantonese && (
@@ -273,20 +273,14 @@ export default function RelationshipCalculator() {
               )}
             </div>
             <div className="flex items-center">
-              {result.yue && result.yue !== result.cantonese && (
-                <div className="flex flex-col items-center mr-2">
-                  <span className="text-xs text-gray-500">Standard</span>
-                  <span className="text-xs text-blue-500">Colloquial</span>
-                </div>
-              )}
               <button 
                 onClick={playPronunciation}
                 className={`p-2 rounded-full ${isPlaying 
                   ? 'bg-blue-200 text-blue-600 animate-pulse' 
                   : 'bg-blue-100 text-blue-700 hover:bg-blue-200'}`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                 </svg>
               </button>
             </div>
