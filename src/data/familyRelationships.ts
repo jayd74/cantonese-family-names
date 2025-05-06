@@ -214,28 +214,28 @@ export const familyRelationships: FamilyRelationship[] = [
   
   // Paternal cousins - Father's brother's children (堂)
   { 
-    english: "Elder male cousin (father's brother's son)", 
+    english: "Male cousin (father's side, older)", 
     cantonese: "堂兄", 
     pinyin: "tong4 hing1",
     generation: 0,
     notes: "Father's brother's son who is older than you" 
   },
   { 
-    english: "Younger male cousin (father's brother's son)", 
+    english: "Male cousin (father's side, younger)", 
     cantonese: "堂弟", 
     pinyin: "tong4 dai6",
     generation: 0,
     notes: "Father's brother's son who is younger than you" 
   },
   { 
-    english: "Elder female cousin (father's brother's daughter)", 
+    english: "Female cousin (father's side, older)", 
     cantonese: "堂姐", 
     pinyin: "tong4 ze2",
     generation: 0,
     notes: "Father's brother's daughter who is older than you" 
   },
   { 
-    english: "Younger female cousin (father's brother's daughter)", 
+    english: "Female cousin (father's side, younger)", 
     cantonese: "堂妹", 
     pinyin: "tong4 mui6",
     generation: 0,
@@ -244,146 +244,48 @@ export const familyRelationships: FamilyRelationship[] = [
   
   // Other cousins - Father's sister's and mother's siblings' children (表)
   { 
-    english: "Elder male cousin (father's sister's son)", 
+    english: "Male cousin (any side, older)", 
     cantonese: "表兄", 
     pinyin: "biu2 hing1",
     generation: 0,
-    notes: "Father's sister's son who is older than you" 
+    notes: "Male cousin who is older than you, from father's or mother's side" 
   },
   { 
-    english: "Younger male cousin (father's sister's son)", 
+    english: "Male cousin (any side, younger)", 
     cantonese: "表弟", 
     pinyin: "biu2 dai6",
     generation: 0,
-    notes: "Father's sister's son who is younger than you" 
+    notes: "Male cousin who is younger than you, from father's or mother's side" 
   },
   { 
-    english: "Elder female cousin (father's sister's daughter)", 
+    english: "Female cousin (any side, older)", 
     cantonese: "表姐", 
     pinyin: "biu2 ze2",
     generation: 0,
-    notes: "Father's sister's daughter who is older than you" 
+    notes: "Female cousin who is older than you, from father's or mother's side" 
   },
   { 
-    english: "Younger female cousin (father's sister's daughter)", 
+    english: "Female cousin (any side, younger)", 
     cantonese: "表妹", 
     pinyin: "biu2 mui6",
     generation: 0,
-    notes: "Father's sister's daughter who is younger than you" 
-  },
-  { 
-    english: "Elder male cousin (mother's brother's son)", 
-    cantonese: "表兄", 
-    pinyin: "biu2 hing1",
-    generation: 0,
-    notes: "Mother's brother's son who is older than you" 
-  },
-  { 
-    english: "Younger male cousin (mother's brother's son)", 
-    cantonese: "表弟", 
-    pinyin: "biu2 dai6",
-    generation: 0,
-    notes: "Mother's brother's son who is younger than you" 
-  },
-  { 
-    english: "Elder female cousin (mother's brother's daughter)", 
-    cantonese: "表姐", 
-    pinyin: "biu2 ze2",
-    generation: 0,
-    notes: "Mother's brother's daughter who is older than you" 
-  },
-  { 
-    english: "Younger female cousin (mother's brother's daughter)", 
-    cantonese: "表妹", 
-    pinyin: "biu2 mui6",
-    generation: 0,
-    notes: "Mother's brother's daughter who is younger than you" 
-  },
-  { 
-    english: "Elder male cousin (mother's sister's son)", 
-    cantonese: "表兄", 
-    pinyin: "biu2 hing1",
-    generation: 0,
-    notes: "Mother's sister's son who is older than you" 
-  },
-  { 
-    english: "Younger male cousin (mother's sister's son)", 
-    cantonese: "表弟", 
-    pinyin: "biu2 dai6",
-    generation: 0,
-    notes: "Mother's sister's son who is younger than you" 
-  },
-  { 
-    english: "Elder female cousin (mother's sister's daughter)", 
-    cantonese: "表姐", 
-    pinyin: "biu2 ze2",
-    generation: 0,
-    notes: "Mother's sister's daughter who is older than you" 
-  },
-  { 
-    english: "Younger female cousin (mother's sister's daughter)", 
-    cantonese: "表妹", 
-    pinyin: "biu2 mui6",
-    generation: 0,
-    notes: "Mother's sister's daughter who is younger than you" 
+    notes: "Female cousin who is younger than you, from father's or mother's side" 
   },
   
   // Spouses of cousins
   { 
-    english: "Male cousin's wife (father's brother's son's wife)", 
-    cantonese: "堂嫂", 
-    pinyin: "tong4 sou2",
-    generation: 0,
-    notes: "Elder paternal male cousin's wife" 
-  },
-  { 
-    english: "Male cousin's wife (father's brother's son's wife)", 
-    cantonese: "堂弟媳", 
-    pinyin: "tong4 dai6 sik1",
-    generation: 0,
-    notes: "Younger paternal male cousin's wife" 
-  },
-  { 
-    english: "Female cousin's husband (father's brother's daughter's husband)", 
-    cantonese: "堂姐夫", 
-    pinyin: "tong4 ze2 fu1",
-    generation: 0,
-    notes: "Elder paternal female cousin's husband" 
-  },
-  { 
-    english: "Female cousin's husband (father's brother's daughter's husband)", 
-    cantonese: "堂妹夫", 
-    pinyin: "tong4 mui6 fu1",
-    generation: 0,
-    notes: "Younger paternal female cousin's husband" 
-  },
-  { 
-    english: "Male cousin's wife (father's sister's/mother's sibling's son's wife)", 
+    english: "Male cousin's wife (any side)", 
     cantonese: "表嫂", 
     pinyin: "biu2 sou2",
     generation: 0,
-    notes: "Elder 'biu' male cousin's wife" 
+    notes: "Wife of male cousin from father's or mother's side" 
   },
   { 
-    english: "Male cousin's wife (father's sister's/mother's sibling's son's wife)", 
-    cantonese: "表弟媳", 
-    pinyin: "biu2 dai6 sik1",
-    generation: 0,
-    notes: "Younger 'biu' male cousin's wife" 
-  },
-  { 
-    english: "Female cousin's husband (father's sister's/mother's sibling's daughter's husband)", 
+    english: "Female cousin's husband (any side)", 
     cantonese: "表姐夫", 
     pinyin: "biu2 ze2 fu1",
     generation: 0,
-    notes: "Elder 'biu' female cousin's husband" 
-  },
-  { 
-    english: "Female cousin's husband (father's sister's/mother's sibling's daughter's husband)", 
-    cantonese: "表妹夫", 
-    pinyin: "biu2 mui6 fu1",
-    generation: 0,
-    notes: "Younger 'biu' female cousin's husband" 
+    notes: "Husband of female cousin from father's or mother's side" 
   },
   
   // Children of cousins
@@ -610,32 +512,32 @@ export const familyRelationships: FamilyRelationship[] = [
     generation: -1 
   },
   { 
-    english: "Nephew (brother's son)", 
-    cantonese: "侄子", 
-    pinyin: "zat6 zi2",
-    generation: -1,
-    notes: "Son of your brother" 
-  },
-  { 
-    english: "Niece (brother's daughter)", 
-    cantonese: "侄女", 
-    pinyin: "zat6 neoi5",
-    generation: -1,
-    notes: "Daughter of your brother" 
-  },
-  { 
-    english: "Nephew (sister's son)", 
+    english: "Nephew (brother's or sister's son)", 
     cantonese: "外甥", 
     pinyin: "ngoi6 saang1",
     generation: -1,
-    notes: "Son of your sister" 
+    notes: "Son of your brother or sister" 
   },
   { 
-    english: "Niece (sister's daughter)", 
+    english: "Niece (brother's or sister's daughter)", 
     cantonese: "外甥女", 
     pinyin: "ngoi6 saang1 neoi5",
     generation: -1,
-    notes: "Daughter of your sister" 
+    notes: "Daughter of your brother or sister" 
+  },
+  { 
+    english: "Grandchild (son's or daughter's child)", 
+    cantonese: "外孫", 
+    pinyin: "ngoi6 syun1",
+    generation: -2,
+    notes: "Son or daughter of your child" 
+  },
+  { 
+    english: "Grandchild's spouse (son's or daughter's child's spouse)", 
+    cantonese: "外孫媳婦", 
+    pinyin: "ngoi6 syun1 sik1 fu5",
+    generation: -2,
+    notes: "Spouse of your grandchild from son's or daughter's side" 
   },
   
   // Children-in-law

@@ -29,7 +29,6 @@ export default function RootLayout({
               {children}
             </div>
           </main>
-          <Footer />
           <ThemeDebug />
           <ErrorLogger />
         </ThemeProvider>
