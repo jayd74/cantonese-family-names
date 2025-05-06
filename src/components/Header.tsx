@@ -29,6 +29,9 @@ export default function Header() {
               <Link href="/guide" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800">
                 Guide
               </Link>
+              <Link href="/chart" className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800">
+                Chart
+              </Link>
             </nav>
             <ThemeToggle />
           </div>
@@ -88,6 +91,9 @@ export default function Header() {
           </Link>
           <Link href="/guide" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800">
             Guide
+          </Link>
+          <Link href="/chart" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800">
+            Chart
           </Link>
           <div className="px-3 py-2">
             <ThemeToggle />

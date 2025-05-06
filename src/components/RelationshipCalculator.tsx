@@ -144,7 +144,6 @@ export default function RelationshipCalculator() {
   const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('Immediate Family');
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
 
   useEffect(() => {
     calculateRelationship();
@@ -240,122 +239,97 @@ export default function RelationshipCalculator() {
   };
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-sm p-3 sm:p-6">
-      <div className="flex justify-between items-center mb-2">
-        <h2 className="text-2xl font-bold">Relationship Calculator</h2>
-        <button 
-          onClick={() => setShowInstructions(!showInstructions)}
-          className="text-blue-600 text-base flex items-center"
-        >
-          {showInstructions ? 'Hide' : 'Help'} 
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-          </svg>
-        </button>
-      </div>
-      
-      {showInstructions && (
-        <p className="text-base text-gray-600 mb-3">
-          Build a family relationship by adding connections starting from you.
-        </p>
-      )}
-
-      {/* Result display with compact layout */}
-      {result ? (
-        <div className="mb-3 p-3 bg-green-50 border border-green-200 rounded-md">
-          <div className="flex items-center gap-2">
-            <div className="text-3xl font-bold text-green-700">
-              {result.cantonese}
-              {result.yue && result.yue !== result.cantonese && (
-                <span className="text-xl text-blue-600 ml-2 font-normal">
-                  (spoken: <span className="font-medium">{result.yue}</span>)
+    <div className="w-full rounded-xl overflow-hidden">
+      {/* Calculator Display Area */}
+      <div className="bg-sky-100 p-3 sm:p-4 text-sky-900">
+        <div className="flex justify-between items-center mb-2">
+          <h2 className="text-lg sm:text-xl font-bold">Relationship Path</h2>
+          <button 
+            onClick={resetCalculator}
+            className="bg-red-400 hover:bg-red-500 text-white px-3 py-1 rounded-full text-sm"
+          >
+            Clear
+          </button>
+        </div>
+        
+        {/* Path Display */}
+        <div className="min-h-[60px] bg-white rounded-lg shadow-sm p-2 sm:p-3 mb-3">
+          {path.length > 0 ? (
+            <div className="flex flex-wrap gap-1 sm:gap-2">
+              {path.map((item, index) => (
+                <span key={index} className="bg-sky-200 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm inline-block text-sky-800">
+                  {item}{index < path.length - 1 && "'s"}
                 </span>
-              )}
+              ))}
             </div>
-            <div className="flex items-center">
-              <button 
-                onClick={playPronunciation}
-                className={`p-2 rounded-full ${isPlaying 
-                  ? 'bg-blue-200 text-blue-600 animate-pulse' 
-                  : 'bg-blue-100 text-blue-700 hover:bg-blue-200'}`}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          
-          <div className="mt-2 text-base">
-            <span className="text-gray-700 font-medium">English: </span>
-            <span>{result.english}</span>
-          </div>
-          
-          {result.notes && (
-            <div className="mt-1 text-sm text-gray-600">
-              {result.notes}
-            </div>
+          ) : (
+            <p className="text-gray-400 italic text-sm sm:text-base">Select family relations below</p>
           )}
         </div>
-      ) : error ? (
-        <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-md">
-          <p className="text-base text-red-700">{error}</p>
-        </div>
-      ) : null}
-
-      {/* Current path with compact display */}
-      <div className="mb-3 p-2 bg-gray-50 rounded-md">
-        <div className="flex justify-between items-center mb-2">
-          <div className="flex items-center">
-            <h3 className="text-base font-medium text-gray-700">Current Path:</h3>
-            <button
-              onClick={resetCalculator}
-              className="ml-2 px-2 py-1 bg-red-100 text-red-800 rounded-md text-sm font-medium hover:bg-red-200 flex items-center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-              Reset
-            </button>
+        
+        {/* Result Display */}
+        {result && (
+          <div className="bg-white rounded-lg shadow-sm p-3 sm:p-4 mb-2">
+            <div className="flex justify-between items-center">
+              <div className="w-full">
+                <h3 className="text-base sm:text-lg font-bold mb-1 text-sky-700">Result</h3>
+                <div className="text-xl sm:text-2xl font-bold mb-1 text-sky-900">
+                  {result.cantonese}
+                  <button
+                    onClick={() => playPronunciation()}
+                    disabled={isPlaying}
+                    className="ml-2 p-1.5 sm:p-2 rounded-full bg-sky-200 hover:bg-sky-300 disabled:opacity-50 text-sky-700"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+                {result.yue && result.yue !== result.cantonese && (
+                  <div className="text-base sm:text-lg font-bold text-sky-700 mb-1">
+                    {result.yue}
+                    <button
+                      onClick={() => {
+                        if (result.yuePinyin) {
+                          const colloquialPinyin = new SpeechSynthesisUtterance(result.yuePinyin);
+                          colloquialPinyin.lang = 'zh-HK';
+                          colloquialPinyin.rate = 0.8;
+                          window.speechSynthesis.speak(colloquialPinyin);
+                        }
+                      }}
+                      className="ml-2 p-1.5 sm:p-2 rounded-full bg-sky-200 hover:bg-sky-300 text-sky-700"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+                <div className="text-xs sm:text-sm text-gray-600">
+                  {result.english}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        {path.length > 0 ? (
-          <div className="flex flex-wrap gap-1">
-            {path.map((relation, index) => (
-              <span key={index} className="inline-flex items-center bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-sm">
-                {relation}
-                {index < path.length - 1 && <span className="text-blue-600">&#39;s</span>}
-                <button 
-                  onClick={() => {
-                    const newPath = [...path];
-                    newPath.splice(index, 1);
-                    setPath(newPath);
-                  }}
-                  className="ml-1 text-blue-600 hover:text-blue-800"
-                  aria-label={`Remove ${relation}`}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-              </span>
-            ))}
+        )}
+        
+        {error && (
+          <div className="bg-red-100 text-red-600 p-2 sm:p-3 rounded-lg border border-red-200 text-sm">
+            {error}
           </div>
-        ) : (
-          <p className="text-sm text-gray-500">Select a family member below to start.</p>
         )}
       </div>
-
-      {/* Category tabs - horizontal scrolling on mobile */}
-      <div className="mb-3 overflow-x-auto pb-1 -mx-3 px-3">
-        <div className="flex space-x-2 min-w-max">
-          {categoryOrder.map(category => (
+      
+      {/* Category Tabs */}
+      <div className="bg-white dark:bg-gray-100 p-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 mb-3 sm:mb-4">
+          {categoryOrder.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-3 py-2 rounded-md text-base font-medium whitespace-nowrap ${
+              className={`py-2 sm:py-3 px-2 sm:px-4 rounded-lg text-center text-sm sm:text-base font-medium ${
                 activeCategory === category
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-sky-500 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -363,31 +337,20 @@ export default function RelationshipCalculator() {
             </button>
           ))}
         </div>
-      </div>
-
-      {/* Relationship selection buttons - compact grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
-        {groupedButtons[activeCategory]?.map((button) => {
-          
-          
-          return (
+        
+        {/* Relation Buttons */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+          {groupedButtons[activeCategory]?.map((button) => (
             <button
               key={button.key}
               onClick={() => addRelation(button.english)}
-              className="relative group p-2 border border-gray-200 rounded-md hover:bg-blue-50 hover:border-blue-200 text-center h-24 flex flex-col items-center justify-center"
+              className="bg-white border border-gray-200 p-2 sm:p-4 rounded-xl shadow-sm hover:bg-sky-50 hover:border-sky-200 transition-colors text-left"
             >
-              <div className="text-sm font-medium text-gray-800 line-clamp-2">{button.label}</div>
-              { button.cantonese && (
-                <div className="text-lg font-bold text-blue-700 mt-1">{button.cantonese}</div>
-              )}
-              <div className="absolute top-0.5 right-0.5 bg-blue-100 text-blue-800 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
-                </svg>
-              </div>
+              <div className="text-base sm:text-lg font-medium text-sky-800">{button.cantonese}</div>
+              <div className="text-xs sm:text-sm text-gray-500 line-clamp-1">{button.english}</div>
             </button>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );

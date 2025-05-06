@@ -484,41 +484,33 @@ export default function FamilyChartPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-full mx-auto bg-white p-6 rounded-lg shadow-sm">
-          <h1 className="text-3xl font-bold mb-6 text-center">Cantonese Family Relationship Tree</h1>
-          
-          <nav className="mb-6 text-center">
-            <p className="mb-2">
-              This chart shows family relationships organized by generation, color-coded by paternal, maternal, and direct family lines.
-            </p>
-            <Link href="/guide" className="inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors">
-              Return to Guide
-            </Link>
-          </nav>
-          
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-sky-100 p-2 sm:p-4">
+      {/* On mobile: No container, full width chart */}
+      <div className="block sm:hidden w-full overflow-x-auto">
+        <h1 className="text-2xl font-bold text-center text-sky-700 dark:text-sky-300 mb-4">Cantonese Family Chart</h1>
+        <div className="bg-white p-2 rounded-xl shadow-sm">
+          <p className="text-center text-sm text-gray-500 mb-2">Scroll horizontally to view the full chart</p>
+          <svg ref={svgRef} className="w-full" style={{ minWidth: '1000px' }} />
+        </div>
+        <div className="text-center mt-4">
+          <Link href="/" className="inline-flex items-center px-3 py-1.5 bg-sky-100 text-sky-700 rounded-full hover:bg-sky-200 transition-colors text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            Back to Home
+          </Link>
+        </div>
+      </div>
+      
+      {/* On tablet/desktop: Contained chart with max width */}
+      <div className="hidden sm:block">
+        <div className="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-lg overflow-hidden p-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-center text-sky-700 dark:text-sky-300 mb-4">Cantonese Family Chart</h1>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-6">
+            A visual representation of Cantonese family relationships and their connections
+          </p>
           <div className="overflow-auto">
-            <svg 
-              ref={svgRef} 
-              className="w-full border border-gray-200 rounded-lg" 
-              style={{ height: '850px', minWidth: '900px' }}
-            ></svg>
-          </div>
-          
-          <div className="mt-6 p-4 bg-gray-100 rounded-lg">
-            <h2 className="text-lg font-semibold mb-2">About This Chart</h2>
-            <p>
-              This family tree visualization displays the complex system of Cantonese family relationship terms. 
-              The chart is organized vertically by generation (from great-grandparents to great-grandchildren) 
-              and horizontally based on the family line.
-            </p>
-            <ul className="list-disc ml-6 mt-2">
-              <li><span className="font-medium">Green node:</span> Your position in the family tree</li>
-              <li><span className="font-medium">Light green nodes:</span> Direct family (parents, children)</li>
-              <li><span className="font-medium">Blue nodes:</span> Paternal side relatives</li>
-              <li><span className="font-medium">Red nodes:</span> Maternal side relatives</li>
-            </ul>
+            <svg ref={svgRef} className="w-full" />
           </div>
         </div>
       </div>

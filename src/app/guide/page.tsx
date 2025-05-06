@@ -71,20 +71,6 @@ export default function GuidePage() {
               <li><strong>Extended In-Laws:</strong> Spouses of your children, grandchildren, nieces, and nephews</li>
             </ul>
             
-            <div className="my-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-center">
-              <h3 className="text-xl font-bold text-blue-700 mb-2">Visual Family Relationship Tree</h3>
-              <p className="mb-3">
-                See the complete family relationship structure in our interactive visual chart 
-                that shows how different family members are connected.
-              </p>
-              <a 
-                href="/chart" 
-                className="inline-block px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
-              >
-                View Family Tree Chart
-              </a>
-            </div>
-            
             <h2>Family Tree Organization</h2>
             <p>
               Our app organizes family relationships by generation relative to yourself:
