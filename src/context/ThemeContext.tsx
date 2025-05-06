@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   // Apply theme class to html element
-  const applyTheme = (newTheme: Theme) => {
+  const applyTheme = useCallback((newTheme: Theme) => {
     if (!isBrowser) return;
     
     try {
@@ -36,7 +36,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       console.error('Error applying theme:', error);
     }
-  };
+  }, []);
 
   // On mount, read the preference from localStorage and set the theme accordingly
   useEffect(() => {
@@ -76,7 +76,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   // Function to toggle theme
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     try {
       const newTheme = theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
@@ -92,12 +92,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       console.error('Error toggling theme:', error);
     }
-  };
+  }, [theme, applyTheme]);
 
   // Provide a value object that doesn't change on each render unless theme changes
   const contextValue = React.useMemo(() => {
     return { theme, toggleTheme };
-  }, [theme]);
+  }, [theme, toggleTheme]);
 
   // Use a separate component for first render
   if (!mounted) {

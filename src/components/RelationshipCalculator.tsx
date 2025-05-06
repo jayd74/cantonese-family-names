@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { 
   familyRelationships, 
   FamilyRelationship, 
@@ -145,21 +145,7 @@ export default function RelationshipCalculator() {
   const [activeCategory, setActiveCategory] = useState<string>('Immediate Family');
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    calculateRelationship();
-  }, [path]);
-
-  const addRelation = (relation: string) => {
-    setPath([...path, relation]);
-  };
-
-  const resetCalculator = () => {
-    setPath([]);
-    setResult(null);
-    setError(null);
-  };
-
-  const calculateRelationship = () => {
+  const calculateRelationship = useCallback(() => {
     if (path.length === 0) {
       setResult(null);
       setError(null);
@@ -204,6 +190,20 @@ export default function RelationshipCalculator() {
       setResult(null);
       setError(`No term found for this relationship: ${searchTerm}`);
     }
+  }, [path]);
+
+  useEffect(() => {
+    calculateRelationship();
+  }, [calculateRelationship]);
+
+  const addRelation = (relation: string) => {
+    setPath([...path, relation]);
+  };
+
+  const resetCalculator = () => {
+    setPath([]);
+    setResult(null);
+    setError(null);
   };
 
   // Audio playback function
